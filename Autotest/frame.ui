@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>881</width>
-    <height>556</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Frame</string>
+   <string>Autotest</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="open">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>420</y>
+      <x>10</x>
+      <y>500</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QPushButton" name="close">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>420</y>
+      <x>10</x>
+      <y>530</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -43,14 +43,17 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>0</y>
-      <width>711</width>
-      <height>401</height>
+      <x>10</x>
+      <y>10</y>
+      <width>640</width>
+      <height>480</height>
      </rect>
     </property>
+    <property name="frameShape">
+     <enum>QFrame::WinPanel</enum>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string/>
     </property>
    </widget>
   </widget>
@@ -59,7 +62,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>881</width>
+     <width>1280</width>
      <height>25</height>
     </rect>
    </property>
