@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-04-07T16:16:50
+# Project created by QtCreator 2017-04-07T18:02:00
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Autotest
+TARGET = autotest2
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -29,3 +29,11 @@ SOURCES += main.cpp\
 HEADERS  += frame.h
 
 FORMS    += frame.ui
+
+INCLUDEPATH += C:\opencv-build\install\include
+LIBS += -L"C:\opencv-build\install\x86\mingw\lib"
+LIBS += -llibopencv_core320.dll
+LIBS += -llibopencv_highgui320.dll
+LIBS += -llibopencv_imgproc320.dll
+LIBS += -llibopencv_video320.dll
+LIBS += -llibopencv_videoio320.dll

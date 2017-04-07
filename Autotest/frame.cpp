@@ -1,8 +1,9 @@
 #include "frame.h"
+#include "ui_frame.h"
 #include "opencv2/opencv.hpp"
 
 Frame::Frame(QWidget *parent) :
-    QWidget(parent),
+    QMainWindow(parent),
     ui(new Ui::Frame)
 {
     ui->setupUi(this);
@@ -10,10 +11,12 @@ Frame::Frame(QWidget *parent) :
     connect(ui->close, SIGNAL(clicked()), this, SLOT(closeCamera()));
     connect(ui->open, SIGNAL(clicked()), this, SLOT(openCamera()));
 }
+
 Frame::~Frame()
 {
     delete ui;
 }
+
 void Frame::openCamera()
 {
     cap.open(0);
@@ -29,5 +32,5 @@ void Frame::readFrame()
     cap >> img;
     cvtColor(img, img, CV_BGR2RGB);
     QImage im((unsigned char *)img.data, img.cols, img.rows, QImage::Format_RGB888);
-    ui->pic->setPixmap(QPixmap::fromImage(im));
+    ui->label->setPixmap(QPixmap::fromImage(im));
 }
