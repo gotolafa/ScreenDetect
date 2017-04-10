@@ -10,6 +10,7 @@
 
 using namespace cv;
 #define FPS 30
+#define CPS 1000*5
 namespace Ui {
 class Frame;
 }
@@ -25,12 +26,16 @@ public:
 private:
     Ui::Frame *ui;
     VideoCapture cap;
-    QTimer timer;
+    QTimer timer_frame;
+    QTimer timer_compare;
     Mat img;
+    Mat img_org;
 private slots:
     void openCamera();
     void closeCamera();
     void readFrame();
+    void showOrgPic();
+    void compareFrame();
 };
 
 #endif // FRAME_H

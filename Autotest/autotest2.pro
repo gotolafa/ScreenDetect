@@ -37,3 +37,8 @@ LIBS += -llibopencv_highgui320.dll
 LIBS += -llibopencv_imgproc320.dll
 LIBS += -llibopencv_video320.dll
 LIBS += -llibopencv_videoio320.dll
+LIBS += -llibopencv_imgcodecs320.dll
+LIBS += -llibopencv_photo320.dll
+
+DISTFILES += \
+    pic.jpg
