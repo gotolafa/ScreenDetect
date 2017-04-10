@@ -10,7 +10,7 @@
 
 using namespace cv;
 #define FPS 30
-#define CPS 1000*5
+#define CPS 1000*1
 namespace Ui {
 class Frame;
 }
@@ -36,6 +36,7 @@ private slots:
     void readFrame();
     void showOrgPic();
     void compareFrame();
+    void renewPicture();
 };
 
 #endif // FRAME_H

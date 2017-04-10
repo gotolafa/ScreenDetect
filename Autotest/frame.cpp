@@ -17,6 +17,7 @@ Frame::Frame(QWidget *parent) :
     connect(&timer_frame, SIGNAL(timeout()), this, SLOT(readFrame()));
     connect(ui->close, SIGNAL(clicked()), this, SLOT(closeCamera()));
     connect(ui->open, SIGNAL(clicked()), this, SLOT(openCamera()));
+    connect(ui->renew, SIGNAL(clicked()), this, SLOT(renewPicture()));
     connect(&timer_compare, SIGNAL(timeout()), this, SLOT(compareFrame()));
     showOrgPic();
 }
@@ -53,6 +54,14 @@ void Frame::showOrgPic()
     img_org = imread("C:\\Users\\TungHsun\\Desktop\\17_autodetect\\GITHUB\\Autotest\\pic.jpg", IMREAD_COLOR );
     QImage p((unsigned char *)img_org.data, img_org.cols, img_org.rows, QImage::Format_RGB888);
     ui->label_2->setPixmap(QPixmap::fromImage(p));
+}
+
+void Frame::renewPicture()
+{
+    img_org = img;
+    QImage p((unsigned char *)img_org.data, img_org.cols, img_org.rows, QImage::Format_RGB888);
+    ui->label_2->setPixmap(QPixmap::fromImage(p));
+
 }
 
 void Frame::compareFrame()
