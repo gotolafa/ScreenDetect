@@ -13,6 +13,8 @@
 using namespace std;
 using namespace cv;
 
+bool triger_point = FALSE;
+
 Frame::Frame(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Frame)
@@ -68,6 +70,7 @@ void Frame::renewPicture()
     QImage p((unsigned char *)img_org.data, img_org.cols, img_org.rows, QImage::Format_RGB888);
     ui->label_2->setPixmap(QPixmap::fromImage(p));
     clearLog();
+    triger_point = TRUE;
     timer_compare.start(CPS);
 }
 
@@ -75,7 +78,7 @@ void Frame::compareFrame()
 {
 #if 1
     double result;
-    double threshold_level = -1.001;
+    double threshold_level = -1.01;
     QString str;
 
     img.convertTo(img, CV_32F);
@@ -84,12 +87,21 @@ void Frame::compareFrame()
     //str.sprintf("%lf", result);
     if(threshold_level < result)
     {
-        str.sprintf("Match %lf", result);
-        ui->showThread->append(str);
+        if (triger_point == TRUE)
+        {
+            str.sprintf("Match %lf", result);
+            ui->showThread->append(str);
+            triger_point = FALSE;
+        }
     }
     else
     {
-        //str.sprintf("NOT match %lf", result);
+        if (triger_point == FALSE)
+        {
+            //str.sprintf("NOT match %lf", result);
+            //ui->showThread->append(str);
+            triger_point = TRUE;
+        }
     }
 
 #else
@@ -104,4 +116,5 @@ void Frame::compareFrame()
 void Frame::clearLog()
 {
     ui->showThread->clear();
+    triger_point = TRUE;
 }
