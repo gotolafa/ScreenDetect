@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
+    <width>1050</width>
     <height>720</height>
    </rect>
   </property>
@@ -30,8 +30,8 @@
    <widget class="QPushButton" name="close">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>370</y>
+      <x>100</x>
+      <y>340</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -88,14 +88,43 @@
      <string>renew</string>
     </property>
    </widget>
+   <widget class="QTextBrowser" name="showThread">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>390</y>
+      <width>256</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clear">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>540</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>clear</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1280</width>
-     <height>25</height>
+     <width>1050</width>
+     <height>23</height>
     </rect>
    </property>
   </widget>

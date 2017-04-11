@@ -7,10 +7,11 @@
 #include <QPainter>
 #include <QImage>
 #include <opencv2/opencv.hpp>
+#include <QDialog>
 
 using namespace cv;
 #define FPS 30
-#define CPS 1000*1
+#define CPS 60
 namespace Ui {
 class Frame;
 }
@@ -30,13 +31,17 @@ private:
     QTimer timer_compare;
     Mat img;
     Mat img_org;
+
+
 private slots:
     void openCamera();
     void closeCamera();
     void readFrame();
-    void showOrgPic();
+    //void showOrgPic();
     void compareFrame();
     void renewPicture();
+    void clearLog();
+    //QLabel *label_number;
 };
 
 #endif // FRAME_H
