@@ -56,13 +56,17 @@ void Frame::readFrame()
     cap >> img;
     cvtColor(img, img, CV_BGR2RGB);
     QImage im((unsigned char *)img.data, img.cols, img.rows, QImage::Format_RGB888);
-    ui->label_1->setPixmap(QPixmap::fromImage(im));
+    QImage imgScaled ;
+    imgScaled = im.scaled(ui->label_1->size(),Qt::KeepAspectRatio);
+    ui->label_1->setPixmap(QPixmap::fromImage(imgScaled));
+
     if (renew_picture == TRUE)
     {
         renew_picture = FALSE;
         img_org = img;
         QImage p((unsigned char *)img_org.data, img_org.cols, img_org.rows, QImage::Format_RGB888);
-        ui->label_2->setPixmap(QPixmap::fromImage(p));
+        imgScaled = p.scaled(ui->label_2->size(),Qt::KeepAspectRatio);
+        ui->label_2->setPixmap(QPixmap::fromImage(imgScaled));
         clearLog();
         triger_point = TRUE;
         timer_compare.start(CPS);
@@ -78,7 +82,7 @@ void Frame::renewPicture()
 void Frame::compareFrame()
 {
     double result;
-    double threshold_level = -1.03;
+    double threshold_level = -1.02;
     QString str;
 
     img.convertTo(img, CV_32F);
@@ -92,6 +96,7 @@ void Frame::compareFrame()
     {
         if (triger_point == TRUE)
         {
+            ui->showResult->append(str);
             QDateTime time = QDateTime::currentDateTime();
             str = "Matched " + time.toString("yy-MM-dd hh:mm:ss");
             ui->showResult->append(str);
