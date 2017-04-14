@@ -11,7 +11,7 @@
 
 using namespace cv;
 #define FPS 30
-#define CPS 60
+#define CPS 30
 namespace Ui {
 class Frame;
 }
@@ -29,6 +29,7 @@ private:
     VideoCapture cap;
     QTimer timer_frame;
     QTimer timer_compare;
+    Mat img_vedio;
     Mat img;
     Mat img_org;
 
@@ -41,6 +42,9 @@ private slots:
     void compareFrame();
     void renewPicture();
     void clearLog();
+    double getPSNR(const Mat& I1, const Mat& I2);
+    Scalar getMSSIM( const Mat& i1, const Mat& i2);
+
     //QLabel *label_number;
 };
 
